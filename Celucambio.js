@@ -58,7 +58,7 @@
   var ActivarChatCeluCambio = function(DB,recipientId) {
       var Person = DB.ref("ChatCeluCambio/Admins");
       var DataChatCeluCambio;
-      var messageData;
+      var messageData="";
       Person.on("value", function(data) {
           DataChatCeluCambio = data.val();
           var IndexConfig = Object.keys(DataChatCeluCambio);
