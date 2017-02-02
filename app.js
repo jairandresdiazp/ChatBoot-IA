@@ -474,7 +474,11 @@ function receivedMessage(event) {
                         ChatCeluCambio.once("value", function(res) {
                             var CaluCambioConfig = res.child("Active").val();
                             if(CaluCambioConfig){
-                                var data= messageText.toLowerCase()
+                                var acentos = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç";
+                                var data= messageText.toLowerCase();
+                                for (var i=0; i<acentos.length; i++) {
+                                    data = data.replace(acentos.charAt(i), messageText.toLowerCase().charAt(i));
+                                }
                                 if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                                     if (response) {
