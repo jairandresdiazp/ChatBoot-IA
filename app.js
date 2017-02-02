@@ -482,7 +482,7 @@ function receivedMessage(event) {
                                 if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                                         if (response) {
-                                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
                                         }
                                     });
                                 }else if(data.indexOf("cambios")||data.indexOf("cambiar")){
@@ -560,7 +560,7 @@ function receivedPostback(event) {
                 if(CaluCambioConfig){
                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                         if (response) {
-                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
                         }
                     });
                 }
@@ -581,7 +581,7 @@ function receivedPostback(event) {
                 if(CaluCambioConfig){
                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                         if (response) {
-                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
                         }
                     });
                 }
@@ -613,7 +613,7 @@ function receivedPostback(event) {
                                         payload: {
                                             template_type: "generic",
                                             elements: [{
-                                                title: "Cambios",
+                                                title: "CeluCambio",
                                                 item_url: "http://www.celucambio.com/",
                                                 subtitle: "Hola " + response.first_name + ", en el siguiente video te explicaremos como funciona todo",
                                                 buttons: [{
