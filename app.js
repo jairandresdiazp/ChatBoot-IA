@@ -463,7 +463,7 @@ function receivedMessage(event) {
                             case '@luces':
                                 Domotica.ActivarLuces(senderID);
                                 break;
-                            case '@Celucambio':
+                            case '@celucambio':
                                 CeluCambio.ActivarChatCeluCambio(senderID);
                                 break;
                             default:
