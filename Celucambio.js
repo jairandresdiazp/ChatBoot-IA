@@ -242,6 +242,7 @@
           Message: "WebJob it's running"
       });
   };
+  
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
   module.exports.SendMessageInfoPerson = SendMessageInfoPerson;
   module.exports.SendMessageServices = SendMessageServices;
