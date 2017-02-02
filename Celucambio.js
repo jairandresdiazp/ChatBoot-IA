@@ -58,7 +58,6 @@
   var ActivarChatCeluCambio = function(DB,recipientId) {
       var Person = DB.ref("ChatCeluCambio/Admins");
       var DataChatCeluCambio;
-      var messageData="";
       Person.on("value", function(data) {
           DataChatCeluCambio = data.val();
           var IndexConfig = Object.keys(DataChatCeluCambio);
@@ -66,7 +65,7 @@
               var Admin = DataChatCeluCambio[IndexConfig[index]];
               if(Admin.ID===recipientId){
                   console.log("si es admin "+Admin.ID+" Rece "+recipientId+"");
-                  messageData = {
+                  var messageData = {
                     recipient: {
                         id: recipientId
                     },
@@ -93,11 +92,12 @@
                         }
                     }
                 };
+                callSendAPI(messageData);
               }
               else
               {
                   console.log("no es admin "+Admin.ID+" Rece"+recipientId+"");
-                  messageData = {
+                  var messageData = {
                     recipient: {
                         id: recipientId
                     },
@@ -106,13 +106,12 @@
                         metadata: "DEVELOPER_DEFINED_METADATA"
                     }
                 };
+                callSendAPI(messageData);
               }
           }
       }, function(error) {
           console.log("The read failed: " + error);
-      });
-    console.log(messageData);   
-    callSendAPI(messageData);
+      });   
   };
 
   var SendMessageInfoPerson = function(recipientId, Name, Phone) {
