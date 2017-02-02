@@ -14,7 +14,7 @@ const
     firebase = require("firebase"),
     Wolfram = require("./Wolfram.js"),
     ChatBoot = require("./ChatBoot.js"),
-    Domotica = require("./Domotica.js");
+    Domotica = require("./Domotica.js"),
     CeluCambio = require("./CeluCambio.js");
 
 var basicAuth = require('basic-auth');
