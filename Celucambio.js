@@ -64,7 +64,6 @@
           var IndexConfig = Object.keys(DataChatCeluCambio);
           for (var index = 0; index < IndexConfig.length; index++) {
               var Admin = DataChatCeluCambio[IndexConfig[index]];
-              console.log(Admin);
               if(Admin.ID===recipientId){
                   console.log("si es admin "+Admin.ID+" Rece "+recipientId+"");
                   messageData = {
@@ -111,7 +110,8 @@
           }
       }, function(error) {
           console.log("The read failed: " + error);
-      }); 
+      });
+    console.log(messageData);   
     callSendAPI(messageData);
   };
 
