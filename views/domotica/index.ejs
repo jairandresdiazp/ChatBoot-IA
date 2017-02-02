@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="favicon.png" />
+    <title>Luces</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.55" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+  </head>
+  <body>
+    <button>
+      <span>
+        <b>I</b> <b>O</b>
+      </span>
+    </button>
+    <footer>
+      <input type="checkbox" id="switch" checked="checked" style="visibility:hidden" />
+    </footer>
+  </body>
+  <script type="text/javascript">
+      /* iOS re-orientation fix */
+    if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+        var viewportmeta = document.querySelectorAll('meta[name="viewport"]')[0];
+        if (viewportmeta) {
+            viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+
+            document.body.addEventListener('gesturestart', function() {
+                viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+            }, false);
+        }
+
+        /* iOS hides Safari address bar */
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                window.scrollTo(0, 1);
+            }, 1000);
+        });
+    }
+
+    var config = {
+      apiKey: "AIzaSyCWtQzhUrIp-vBaVKjXp6nmz1-nVBZ64kY",
+      authDomain: "chatboot-ia.firebaseapp.com",
+      databaseURL: "https://chatboot-ia.firebaseio.com",
+      storageBucket: "chatboot-ia.appspot.com",
+      messagingSenderId: "1035357971462"
+    };
+    firebase.initializeApp(config);
+
+    var DB = firebase.database();
+    var Luces = DB.ref('Luces');
+    var LuzSala;
+
+    $(document).ready(function() {
+
+        /* on button click, toggle class "OFF" for the switch */
+        $("button").click(function() {
+            $("button").toggleClass("off");
+        });
+        
+
+        /* by default, darkness checkbox is checked (ON) but check anyhow */
+        if ($('#switch').is(':checked')) {
+            darkness();
+        }
+
+        /* on checkbox click, check if checked or not,
+        call the function to initiate or remove the class of "darkness" if not */
+        $('#switch').click(function() {
+            if ($('#switch').is(':checked')) {
+                darkness();
+            } else {
+                $(".dark").remove(); 
+            }
+        });
+        
+        Luces.once("value", function(res) {
+            LuzSala = res.child("Sala").val();
+            if (LuzSala) {
+                $(".dark").fadeOut(800);
+                $("button").removeClass();
+            }else{
+                $(".dark").fadeIn(800);
+            }
+        });
+        
+        Luces.on("child_changed", function(res) {
+            LuzSala = res.val();
+            if (LuzSala) {
+                console.log("Lueces encendidas");
+                $(".dark").fadeOut(3000);
+                $("button").removeClass();
+            }else{
+                console.log("Lueces apagadas");
+                $(".dark").fadeIn(3000);
+            }
+        }); 
+        
+        function darkness() {
+            /* adds a div for the darkness when switch is OFF */
+            $('html').append('<div class="dark"></div>');
+
+            /* on button click, make darkness */
+            $("button").click(function() {
+                /* avoid bug of inverting the switch i.e. "1" = OFF, "0" = ON;
+                (by disabling the lights, clicking on the switch (OFF), re-enabling the lights and clicking the switch (ON) */
+                if ($("button").hasClass("")) {
+                    //do nothing
+                } else {
+                    Luces.update({ Sala: false });
+                }
+            });
+
+            /* wherever on darkness is clicked, bring the light back and move the switch to ON */
+            $(".dark").click(function() {
+                Luces.update({ Sala: true });
+            });
+        }
+    });             
+  </script>
+  <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-89586754-1', 'auto');
+        ga('send', 'pageview');
+      
+  </script>
+</html>

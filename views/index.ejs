@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+      <meta name="theme-color" content="#2196F3">
+      <title>Boot-IA</title>
+      <!-- CSS  -->
+      <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+      <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+      <link href="favicon.png" type="image/png" rel="icon" sizes="32x32" />
+   </head>
+   <body id="top" class="scrollspy">
+      <!--Conexion con facebook-->
+      <script>
+         window.fbAsyncInit = function() {
+         FB.init({
+          appId: '1762646144010325',
+          xfbml: true,
+          version: 'v2.6'
+         });
+         };
+         
+         (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+      </script>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.7&appId=1278195502195952";
+         fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
+      <!-- Pre Loader -->
+      <div id="loader-wrapper">
+         <div id="loader"></div>
+         <div class="loader-section section-left"></div>
+         <div class="loader-section section-right"></div>
+      </div>
+      <!--Navigation-->
+      <div class="navbar-fixed">
+         <nav id="nav_f" class="default_color" role="navigation">
+            <div class="container">
+               <div class="nav-wrapper">
+                  <a href="#" id="logo-container" class="brand-logo">Boot-IA</a>
+                  <ul class="right hide-on-med-and-down">
+                     <li><a href="#index-banner">Inicio</a></li>
+                     <li><a href="#work">Proyectos</a></li>
+                     <li><a href="#team">Equipo</a></li>
+                     <li><a href="domotica" target="_blank" >Domotica</a></li>
+                     <li>
+                        <div class="fb-like" data-href="https://www.facebook.com/Boot-IA-307870269564937/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                     </li>
+                  </ul>
+                  <ul id="nav-mobile" class="side-nav">
+                     <li><a href="#index-banner">Inicio</a></li>
+                     <li><a href="#work">Proyectos</a></li>
+                     <li><a href="#team">Equipo</a></li>
+                     <li><a href="domotica" target="_blank" >Domotica</a></li>
+                     <li>
+                        <div class="fb-like" data-href="https://www.facebook.com/Boot-IA-307870269564937/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                     </li>
+                  </ul>
+                  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <!--Hero-->
+      <div class="section no-pad-bot" id="index-banner">
+         <div class="container">
+            <h1 class="text_h center header cd-headline letters type">
+               <span>Amamos</span> 
+               <span class="cd-words-wrapper waiting">
+               <b class="is-visible">crear</b>
+               <b>diseñar</b>
+               <b>desarrollar</b>
+               </span>
+            </h1>
+         </div>
+      </div>
+      <!--Intro and service-->
+      <div id="intro" class="section scrollspy">
+         <div class="container">
+            <div class="row">
+               <div  class="col s12">
+                  <h2 class="center header text_h2"> Conectamos a las personas con su negocio. <span class="span_h2"> facil  </span> implementacion</h2>
+               </div>
+               <div  class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-image-flash-on"></i>
+                     <h5 class="promo-caption">Rapida integracion</h5>
+                     <p class="light center">integracion API Rest</p>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-social-group"></i>
+                     <h5 class="promo-caption">Experiencia de usuario</h5>
+                     <p class="light center">De facil uso para el usuario final.</p>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-hardware-desktop-windows"></i>
+                     <h5 class="promo-caption">Diseño simple</h5>
+                     <p class="light center">Diseño aplicado a la experiencia de usuario</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Work-->
+      <div class="section scrollspy" id="work">
+         <div class="container">
+            <h2 class="header text_b">Proyectos </h2>
+            <div class="row">
+               <div class="col s12 m4 l4">
+                  <div class="card">
+                     <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project1.jpg">
+                     </div>
+                     <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Salud <i class="mdi-navigation-more-vert right"></i></span>
+                     </div>
+                     <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Salud <i class="mdi-navigation-close right"></i></span>
+                        <p>Informacion clinica de los usuarios.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="card">
+                     <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project2.jpg">
+                     </div>
+                     <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Comercio <i class="mdi-navigation-more-vert right"></i></span>
+                     </div>
+                     <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Comercio <i class="mdi-navigation-close right"></i></span>
+                        <p>Compras en los distintos comercios.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="card">
+                     <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project3.jpg">
+                     </div>
+                     <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">PQR <i class="mdi-navigation-more-vert right"></i></span>
+                     </div>
+                     <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">PQR <i class="mdi-navigation-close right"></i></span>
+                        <p>Recepcion PQR y respuestas a preguntas frecuentes.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Team-->
+      <div class="section scrollspy" id="team">
+         <div class="container">
+            <h2 class="header text_b"> Nuestro Equipo </h2>
+            <div class="row">
+               <div class="col s12 m4">
+                  <div class="card card-avatar">
+                     <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar3.png">
+                     </div>
+                     <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                        Jair Diaz <br/>
+                        <small><em><a class="red-text text-darken-1" href="#">Dev</a></em></small></span>
+                        <p>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-facebook-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-twitter-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-google-plus-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-linkedin-square"></i>
+                           </a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col s12 m4">
+                  <div class="card card-avatar">
+                     <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar2.png">
+                     </div>
+                     <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Diana Gomez<br/>
+                        <small><em><a class="red-text text-darken-1" href="#">Dev</a></em></small>
+                        </span>
+                        <p>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-facebook-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-twitter-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-google-plus-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-linkedin-square"></i>
+                           </a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col s12 m4">
+                  <div class="card card-avatar">
+                     <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar1.png">
+                     </div>
+                     <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Jorge Avendaño <br/>
+                        <small><em><a class="red-text text-darken-1" href="#">Dev</a></em></small></span>
+                        <p>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-facebook-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-twitter-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-google-plus-square"></i>
+                           </a>
+                           <a class="blue-text text-lighten-2" href="#">
+                           <i class="fa fa-linkedin-square"></i>
+                           </a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Footer-->
+      <footer id="contact" class="page-footer default_color scrollspy">
+         <div class="container">
+            <div class="row">
+               <div class="col l9 s12">
+                  <div class="fb-messengermessageus" 
+                     messenger_app_id='1762646144010325'
+                     page_id='307870269564937'
+                     color="blue"
+                     size="standard">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer-copyright default_color">
+            <div class="container">
+               Diseñado por Boot-IA<a class="white-text" href="#">
+               <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+               </a><a class="white-text" href="https://www.facebook.com/Boot-IA-307870269564937/">
+               <i class="small fa fa-facebook-square white-text"></i> Facebook
+               </a>
+            </div>
+         </div>
+      </footer>
+      <!--  Scripts-->
+      <script src="min/plugin-min.js"></script>
+      <script src="min/custom-min.js"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-89586754-1', 'auto');
+        ga('send', 'pageview');
+      
+      </script>
+   </body>
+</html>

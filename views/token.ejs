@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+      <meta name="theme-color" content="#2196F3">
+      <title>Boot-IA</title>
+      <!-- CSS  -->
+      <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+      <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+      <link href="favicon.png" type="image/png" rel="icon" sizes="32x32" />
+   </head>
+   <body id="top" class="scrollspy">
+      <!--Conexion con facebook-->
+      <script>
+         window.fbAsyncInit = function() {
+         FB.init({
+          appId: '1762646144010325',
+          xfbml: true,
+          version: 'v2.6'
+         });
+         };
+         
+         (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+      </script>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.7&appId=1278195502195952";
+         fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
+      <!-- Pre Loader -->
+      <div id="loader-wrapper">
+         <div id="loader"></div>
+         <div class="loader-section section-left"></div>
+         <div class="loader-section section-right"></div>
+      </div>
+      <!--Navigation-->
+      <div class="navbar-fixed">
+         <nav id="nav_f" class="default_color" role="navigation">
+            <div class="container">
+               <div class="nav-wrapper">
+                  <a href="#" id="logo-container" class="brand-logo">Boot-IA</a>
+                  <ul class="right hide-on-med-and-down">
+                     <li><a href="#index-banner">Inicio</a></li>
+                     <li><a href="#work">Proyectos</a></li>
+                     <li><a href="#team">Equipo</a></li>
+                     <li><a href="domotica" target="_blank" >Domotica</a></li>
+                     <li>
+                        <div class="fb-like" data-href="https://www.facebook.com/Boot-IA-307870269564937/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                     </li>
+                  </ul>
+                  <ul id="nav-mobile" class="side-nav">
+                     <li><a href="#index-banner">Inicio</a></li>
+                     <li><a href="#work">Proyectos</a></li>
+                     <li><a href="#team">Equipo</a></li>
+                     <li><a href="domotica" target="_blank" >Domotica</a></li>
+                     <li>
+                        <div class="fb-like" data-href="https://www.facebook.com/Boot-IA-307870269564937/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                     </li>
+                  </ul>
+                  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <!--Hero-->
+      <div class="section no-pad-bot" id="index-banner">
+         <div class="container">
+            <h1 class="text_h center header cd-headline letters type">
+               <span>Amamos</span> 
+               <span class="cd-words-wrapper waiting">
+               <b class="is-visible">crear</b>
+               <b>diseñar</b>
+               <b>desarrollar</b>
+               </span>
+            </h1>
+         </div>
+      </div>
+      <!--Intro and service-->
+      <div id="intro" class="section scrollspy">
+         <div class="container">
+            <div class="row">
+               <div  class="col s12">
+                  <h2 class="center header text_h2"> Guia de <span class="span_h2"> Token.  </span> Boot-IA</h2>
+               </div>
+               <div  class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-action-swap-horiz"></i>
+                     <h5 class="promo-caption">@citas #NumeroIdentificacion</h5>
+                     <p class="light center">ultimas citas programadas para un paciente</p>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-action-swap-horiz"></i>
+                     <h5 class="promo-caption">@facturas #NumeroIdentificacion</h5>
+                     <p class="light center">ultimas facturas que tiene un usuario</p>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-action-swap-horiz"></i>
+                     <h5 class="promo-caption">@servicios</h5>
+                     <p class="light center">servicios que presta la IPS o EPS</p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div  class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-action-swap-horiz"></i>
+                     <h5 class="promo-caption">@token #NumeroTelefono</h5>
+                     <p class="light center">recupera el token de seguridad para usar la aplicacion</p>
+                  </div>
+               </div>
+               <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                     <i class="mdi-action-swap-horiz"></i>
+                     <h5 class="promo-caption">@magic cualquier cosa</h5>
+                     <p class="light center">remplace "cualquier cosa" con cualquier consulta y sorprendase <a href="http://m.wolframalpha.com/" target="_blank">ver mas</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Footer-->
+      <footer id="contact" class="page-footer default_color scrollspy">
+         <div class="container">
+            <div class="row">
+               <div class="col l9 s12">
+                  <div class="fb-messengermessageus" 
+                     messenger_app_id='1762646144010325'
+                     page_id='307870269564937'
+                     color="blue"
+                     size="standard">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer-copyright default_color">
+            <div class="container">
+               Diseñado por Boot-IA<a class="white-text" href="#">
+               <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+               </a><a class="white-text" target="_blank" href="https://www.facebook.com/Boot-IA-307870269564937/">
+               <i class="small fa fa-facebook-square white-text"></i> Facebook
+               </a>
+            </div>
+         </div>
+      </footer>
+      <!--  Scripts-->
+      <script src="min/plugin-min.js"></script>
+      <script src="min/custom-min.js"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-89586754-1', 'auto');
+        ga('send', 'pageview');
+      
+      </script>
+   </body>
+</html>

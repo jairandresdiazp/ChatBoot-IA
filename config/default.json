@@ -1,0 +1,14 @@
+{
+    "appSenderId":"307870269564937",
+    "appSecret": "83ca9cda408c1a3bd1e005fead4701b1",
+    "pageAccessToken": "EAAZADHglHSFUBAK9ZACFlLwXK57opqzOJZBqgJNUzz4LdegdRbL7SUt4DRLnzkviM32ZADOglDgCPAFU4juA6hL3gAxnHbARvZAj7CHZAD2xSUtgPv3GZBHeASZCYwXb1uvwq3bT0M3HYErJTQ8t9ZArOj5ctVjKeDsRmZAzCwkg6OAAZDZD",
+    "validationToken": "c43206b0-5ac1-4001-b736-5635b503091a",
+    "serverURL": "https://chatboot-ia.azurewebsites.net/",
+    "userElibom": "mlinares@transfiriendo.com",
+    "passElibom": "jZHJl37Jgn",
+    "tokenTTL": 24,
+    "tokenLength": 4,
+    "userAuth":"jdiaz",
+    "passAuth":"jdiaz",
+    "wolframKey":"PJ5WY2-YTVHHAPV3J"
+}

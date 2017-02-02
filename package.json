@@ -1,0 +1,32 @@
+{
+  "name": "ChatBoot-IA",
+  "version": "1.0.0",
+  "description": "ChatBoot Facebook",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "jshint --exclude node_modules .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
+  "author": "Jair Andres Diaz Puentes",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "config": "^1.20.4",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "firebase": "^3.3.2",
+    "request": "^2.72.0",
+    "unirest": "latest",
+    "serve-favicon":"latest",
+    "path":"latest",
+    "elibom":"latest"
+  },
+  "engines": {
+    "node": "~4.1.2"
+  }
+}
