@@ -618,7 +618,7 @@ function receivedPostback(event) {
                                                 subtitle: "Hola " + response.first_name + ", en el siguiente video te explicaremos como funciona todo",
                                                 buttons: [{
                                                     type: "web_url",
-                                                    url: "https://www.youtube.com/channel/UCc1AuEfTBNBB2BzC-CFS-QA",
+                                                    url: "https://www.youtube.com/watch?v=pJecvz11JW4",
                                                     title: "Ver Video"
                                                 }]
                                             }]
