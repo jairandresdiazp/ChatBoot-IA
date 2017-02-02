@@ -15,6 +15,7 @@ const
     Wolfram = require("./Wolfram.js"),
     ChatBoot = require("./ChatBoot.js"),
     Domotica = require("./Domotica.js");
+    CeluCambio = require("./CeluCambio.js");
 
 var basicAuth = require('basic-auth');
 var app = express();
@@ -462,6 +463,9 @@ function receivedMessage(event) {
                             case '@luces':
                                 Domotica.ActivarLuces(senderID);
                                 break;
+                            case '@Celucambio':
+                                CeluCambio.ActivarChatCeluCambio(senderID);
+                                break;
                             default:
                                 sendTextMessage(senderID, "Consulte la guia de token en el menu " + messageText + " no es valido");
                         }
@@ -516,6 +520,7 @@ function receivedDeliveryConfirmation(event) {
  */
 function receivedPostback(event) {
     var Luces = DB.ref('Luces');
+    var ChatCeluCambio = DB.ref('ChatCeluCambio');
     
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
@@ -562,6 +567,17 @@ function receivedPostback(event) {
             break;
         case '00004':
             Luces.update({ Sala: false });
+            break;
+        case '00005':
+            ChatCeluCambio.once("value", function(res) {
+                var CaluCambioConfig = res.child("Active").val();
+                if(!CaluCambioConfig){
+                    ChatCeluCambio.update({ Active: true });
+                }
+              });
+            break;
+        case '00006':
+            ChatCeluCambio.update({ Active: false });
             break;
         default:
             sendTextMessage(senderID, "Accion no definida");
