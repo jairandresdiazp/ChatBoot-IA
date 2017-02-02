@@ -65,7 +65,7 @@
           for (var index = 0; index < IndexConfig.length; index++) {
               var Admin = DataChatCeluCambio[IndexConfig[index]];
               if(Admin.ID=recipientId){
-                  console.log("si es admin");
+                  console.log("si es admin "+Admin.ID+" Rece"+recipientId+"");
                   messageData = {
                     recipient: {
                         id: recipientId
@@ -96,7 +96,7 @@
               }
               else
               {
-                  console.log("no es admin");
+                  console.log("no es admin "+Admin.ID+" Rece"+recipientId+"");
                   messageData = {
                     recipient: {
                         id: recipientId
