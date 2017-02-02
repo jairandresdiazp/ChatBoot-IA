@@ -58,44 +58,59 @@
   var ActivarChatCeluCambio = function(DB,recipientId) {
       var Person = DB.ref("ChatCeluCambio");
       var DataChatCeluCambio;
+      var messageData;
       Person.on("value", function(data) {
           DataChatCeluCambio = data.val();
           var IndexConfig = Object.keys(DataChatCeluCambio);
           for (var index = 0; index < IndexConfig.length; index++) {
               var Admin = DataChatCeluCambio[IndexConfig[index]];
-              console.log(Admin);
-              //SendMessageInfoPerson(DataPerson.ID, DataPerson.FirtsName + " " + DataPerson.FirtsName, "151515155");
+              console.log(Admin.ID);
+              if(Admin.ID=recipientId){
+                  messageData = {
+                    recipient: {
+                        id: recipientId
+                    },
+                    message: {
+                        attachment: {
+                            type: "template",
+                            payload: {
+                                template_type: "generic",
+                                elements: [{
+                                    title: "Configuracion",
+                                    item_url: "http://www.celucambio.com/",
+                                    subtitle: "Esta seguro de actualizar la configuracion de chat CeluCambio",
+                                    buttons: [{
+                                        type: "postback",
+                                        title: "Confirmar",
+                                        payload: "00005"
+                                    }, {
+                                        type: "postback",
+                                        title: "Cancelar",
+                                        payload: "00006"
+                                    }]
+                                }]
+                            }
+                        }
+                    }
+                };
+              }
+              else
+              {
+                  messageData = {
+                    recipient: {
+                        id: recipientId
+                    },
+                    message: {
+                        text: "No tiene el nivel de acceso adecuado, Contactece con el administrador",
+                        metadata: "DEVELOPER_DEFINED_METADATA"
+                    }
+                };
+              }
           }
       }, function(error) {
           console.log("The read failed: " + error);
       });
-      var messageData = {
-          recipient: {
-              id: recipientId
-          },
-          message: {
-              attachment: {
-                  type: "template",
-                  payload: {
-                      template_type: "generic",
-                      elements: [{
-                          title: "Configuracion",
-                          item_url: "http://www.celucambio.com/",
-                          subtitle: "Esta seguro de actualizar la configuracion de chat CeluCambio",
-                          buttons: [{
-                              type: "postback",
-                              title: "Confirmar",
-                              payload: "00005"
-                          }, {
-                              type: "postback",
-                              title: "Cancelar",
-                              payload: "00006"
-                          }]
-                      }]
-                  }
-              }
-          }
-      };
+      
     callSendAPI(messageData);
   };
 
