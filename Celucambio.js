@@ -67,7 +67,7 @@
                       template_type: "generic",
                       elements: [{
                           title: "Configuracion",
-                          item_url: SERVER_URL,
+                          item_url: "http://www.celucambio.com/",
                           subtitle: "Esta seguro de actualizar la ocnfiguracion de chat CeluCambio",
                           buttons: [{
                               type: "postback",
