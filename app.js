@@ -470,11 +470,27 @@ function receivedMessage(event) {
                                 sendTextMessage(senderID, "Consulte la guia de token en el menu " + messageText + " no es valido");
                         }
                     } else {
-                        ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
-                            if (response) {
-                                sendTextMessage(senderID, "Hola " + response.first_name + " " + response.last_name + ", consulta nuestra guia de token en el menu 🏥");
-                            } else {
-                                sendTextMessage(senderID, "Hola, consulta nuestra guia de token en el menu 🏥");
+                        var ChatCeluCambio = DB.ref('ChatCeluCambio');
+                        ChatCeluCambio.once("value", function(res) {
+                            var CaluCambioConfig = res.child("Active").val();
+                            if(CaluCambioConfig){
+                                var data= messageText.toLowerCase()
+                                if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
+                                    ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                                    if (response) {
+                                        sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                                    }
+                                });
+                                }
+                            }
+                            else{
+                                ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                                    if (response) {
+                                        sendTextMessage(senderID, "Hola " + response.first_name + " " + response.last_name + ", consulta nuestra guia de token en el menu 🏥");
+                                    } else {
+                                        sendTextMessage(senderID, "Hola, consulta nuestra guia de token en el menu 🏥");
+                                    }
+                                });
                             }
                         });
                     }

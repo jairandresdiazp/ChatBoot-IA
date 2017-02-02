@@ -80,11 +80,11 @@
                                     subtitle: "Esta seguro de actualizar la configuracion de chat CeluCambio",
                                     buttons: [{
                                         type: "postback",
-                                        title: "Confirmar",
+                                        title: "Activar",
                                         payload: "00005"
                                     }, {
                                         type: "postback",
-                                        title: "Cancelar",
+                                        title: "Desactivar",
                                         payload: "00006"
                                     }]
                                 }]
