@@ -481,10 +481,12 @@ function receivedMessage(event) {
                                 }
                                 if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
-                                    if (response) {
-                                        sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
-                                    }
-                                });
+                                        if (response) {
+                                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                                        }
+                                    });
+                                }else if(data.indexOf("cambios")||data.indexOf("cambiar")){
+                                    CeluCambio.SendMessageCambios(senderID);
                                 }
                             }
                             else{

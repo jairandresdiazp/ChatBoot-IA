@@ -114,6 +114,33 @@
       });   
   };
 
+  var SendMessageCambios = function(recipientId) {
+      var messageData = {
+                    recipient: {
+                        id: recipientId
+                    },
+                    message: {
+                        attachment: {
+                            type: "template",
+                            payload: {
+                                template_type: "generic",
+                                elements: [{
+                                    title: "Cambios",
+                                    item_url: "http://www.celucambio.com/",
+                                    subtitle: "Puedes ver nuestros telefonos disponibles para cambio en nuestro sitio web",
+                                    buttons: [{
+                                        type: "web_url",
+                                        url: "http://www.celucambio.com/cambiar",
+                                        title: "Ver Telefonos"
+                                    }]
+                                }]
+                            }
+                        }
+                    }
+                };
+      callSendAPI(messageData);
+  };
+
   var SendMessageInfoPerson = function(recipientId, Name, Phone) {
       var messageData = {
           recipient: {
@@ -272,6 +299,7 @@
   };
 
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
+  module.exports.SendMessageCambios = SendMessageCambios;
   module.exports.SendMessageInfoPerson = SendMessageInfoPerson;
   module.exports.SendMessageServices = SendMessageServices;
   module.exports.SendMessageInvoicePerson = SendMessageInvoicePerson;
