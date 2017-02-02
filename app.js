@@ -554,24 +554,86 @@ function receivedPostback(event) {
 
     switch (payload.toLowerCase().trim()) {
         case 'start':
-            ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
-                if (response) {
-                    sendTextMessage(senderID, "Hola " + response.first_name + " " + response.last_name + ", consulta nuestra guia de token en el menu 🏥");
-                } else {
-                    sendTextMessage(senderID, "Hola, consulta nuestra guia de token en el menu 🏥");
+            var ChatCeluCambio = DB.ref('ChatCeluCambio');
+            ChatCeluCambio.once("value", function(res) {
+                var CaluCambioConfig = res.child("Active").val();
+                if(CaluCambioConfig){
+                    ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                        if (response) {
+                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                        }
+                    });
                 }
-            });
+                else{
+                    ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                        if (response) {
+                            sendTextMessage(senderID, "Hola " + response.first_name + " " + response.last_name + ", consulta nuestra guia de token en el menu 🏥");
+                        } else {
+                            sendTextMessage(senderID, "Hola, consulta nuestra guia de token en el menu 🏥");
+                        }
+                    });
+                }
+            }); 
         case 'new':
-            ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
-                if (response) {
-                    sendTextMessage(senderID, "Hola " + response.first_name + " " + response.last_name + ", consulta nuestra guia de token en el menu 🏥");
-                } else {
-                    sendTextMessage(senderID, "Hola, consulta nuestra guia de token en el menu 🏥");
+            var ChatCeluCambio = DB.ref('ChatCeluCambio');
+            ChatCeluCambio.once("value", function(res) {
+                var CaluCambioConfig = res.child("Active").val();
+                if(CaluCambioConfig){
+                    ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                        if (response) {
+                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar");
+                        }
+                    });
                 }
-            });
+                else{
+                    ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                        if (response) {
+                            sendTextMessage(senderID, "Hola " + response.first_name + " " + response.last_name + ", consulta nuestra guia de token en el menu 🏥");
+                        } else {
+                            sendTextMessage(senderID, "Hola, consulta nuestra guia de token en el menu 🏥");
+                        }
+                    });
+                }
+            }); 
             break;
         case 'help':
-            sendTextMessage(senderID, "escribenos al correo jairandresdiazp@gmail.com");
+            var ChatCeluCambio = DB.ref('ChatCeluCambio');
+            ChatCeluCambio.once("value", function(res) {
+                var CaluCambioConfig = res.child("Active").val();
+                if(CaluCambioConfig){
+                    ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
+                        if (response) {
+                                var messageData = {
+                                recipient: {
+                                    id: recipientId
+                                },
+                                message: {
+                                    attachment: {
+                                        type: "template",
+                                        payload: {
+                                            template_type: "generic",
+                                            elements: [{
+                                                title: "Cambios",
+                                                item_url: "http://www.celucambio.com/",
+                                                subtitle: "Hola " + response.first_name + ", en el siguiente video te explicaremos como funciona todo",
+                                                buttons: [{
+                                                    type: "web_url",
+                                                    url: "https://www.youtube.com/channel/UCc1AuEfTBNBB2BzC-CFS-QA",
+                                                    title: "Ver Video"
+                                                }]
+                                            }]
+                                        }
+                                    }
+                                }
+                            };
+                            callSendAPI(messageData);
+                        }
+                    });
+                }
+                else{
+                    sendTextMessage(senderID, "escribenos al correo jairandresdiazp@gmail.com");
+                }
+            }); 
             break;
         case '00001':
             sendTextMessage(senderID, "Cita confirmada");
