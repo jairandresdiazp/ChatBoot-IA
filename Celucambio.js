@@ -110,8 +110,7 @@
           }
       }, function(error) {
           console.log("The read failed: " + error);
-      });
-    console.log(messageData);  
+      }); 
     callSendAPI(messageData);
   };
 
