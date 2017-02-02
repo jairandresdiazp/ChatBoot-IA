@@ -61,9 +61,13 @@
       var messageData;
       Person.on("value", function(data) {
           DataChatCeluCambio = data.val();
+          console.log(DataChatCeluCambio);
           var IndexConfig = Object.keys(DataChatCeluCambio);
           for (var index = 0; index < IndexConfig.length; index++) {
+              console.log(IndexConfig);
+              console.log(IndexConfig.length);
               var Admin = DataChatCeluCambio[IndexConfig[index]];
+              console.log(Admin);
               console.log(Admin.ID);
               if(Admin.ID=recipientId){
                   messageData = {
