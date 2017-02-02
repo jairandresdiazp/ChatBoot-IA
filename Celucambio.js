@@ -55,7 +55,7 @@
       });
   };
 
-  var ActivarChatCeluCambio = function(recipientId) {
+  var ActivarChatCeluCambio = function(DB,recipientId) {
       var Person = DB.ref("ChatCeluCambio");
       var DataChatCeluCambio;
       Person.on("value", function(data) {

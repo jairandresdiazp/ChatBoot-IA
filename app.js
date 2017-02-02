@@ -464,7 +464,7 @@ function receivedMessage(event) {
                                 Domotica.ActivarLuces(senderID);
                                 break;
                             case '@celucambio':
-                                CeluCambio.ActivarChatCeluCambio(senderID);
+                                CeluCambio.ActivarChatCeluCambio(DB,senderID);
                                 break;
                             default:
                                 sendTextMessage(senderID, "Consulte la guia de token en el menu " + messageText + " no es valido");
