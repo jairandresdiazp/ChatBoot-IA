@@ -61,11 +61,11 @@
       var messageData;
       Person.on("value", function(data) {
           DataChatCeluCambio = data.val();
-          console.log(DataChatCeluCambio);
           var IndexConfig = Object.keys(DataChatCeluCambio);
           for (var index = 0; index < IndexConfig.length; index++) {
               var Admin = DataChatCeluCambio[IndexConfig[index]];
               if(Admin.ID=recipientId){
+                  console.log("si es admin");
                   messageData = {
                     recipient: {
                         id: recipientId
@@ -96,6 +96,7 @@
               }
               else
               {
+                  console.log("no es admin");
                   messageData = {
                     recipient: {
                         id: recipientId
