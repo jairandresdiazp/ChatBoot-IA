@@ -482,6 +482,7 @@ function receivedMessage(event) {
                                 if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                                         if (response) {
+                                            console.log("aca");
                                             sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
                                         }
                                     });
