@@ -55,7 +55,7 @@
       });
   };
 
-  var ActivarChatCeluCambio = function(DB,recipientId) {
+  var ActivarChatCeluCambio = function(DB, recipientId) {
       var Person = DB.ref("ChatCeluCambio/Admins");
       var DataChatCeluCambio;
       Person.on("value", function(data) {
@@ -63,81 +63,106 @@
           var IndexConfig = Object.keys(DataChatCeluCambio);
           for (var index = 0; index < IndexConfig.length; index++) {
               var Admin = DataChatCeluCambio[IndexConfig[index]];
-              if(Admin.ID===recipientId){
-                  console.log("si es admin "+Admin.ID+" Rece "+recipientId+"");
+              if (Admin.ID === recipientId) {
+                  console.log("si es admin " + Admin.ID + " Rece " + recipientId + "");
                   var messageData = {
-                    recipient: {
-                        id: recipientId
-                    },
-                    message: {
-                        attachment: {
-                            type: "template",
-                            payload: {
-                                template_type: "generic",
-                                elements: [{
-                                    title: "Configuracion",
-                                    item_url: "http://www.celucambio.com/",
-                                    subtitle: "Esta seguro de actualizar la configuracion de chat CeluCambio",
-                                    buttons: [{
-                                        type: "postback",
-                                        title: "Activar",
-                                        payload: "00005"
-                                    }, {
-                                        type: "postback",
-                                        title: "Desactivar",
-                                        payload: "00006"
-                                    }]
-                                }]
-                            }
-                        }
-                    }
-                };
-                callSendAPI(messageData);
-              }
-              else
-              {
-                  console.log("no es admin "+Admin.ID+" Rece"+recipientId+"");
+                      recipient: {
+                          id: recipientId
+                      },
+                      message: {
+                          attachment: {
+                              type: "template",
+                              payload: {
+                                  template_type: "generic",
+                                  elements: [{
+                                      title: "Configuracion",
+                                      item_url: "http://www.celucambio.com/",
+                                      subtitle: "Esta seguro de actualizar la configuracion de chat CeluCambio",
+                                      buttons: [{
+                                          type: "postback",
+                                          title: "Activar",
+                                          payload: "00005"
+                                      }, {
+                                          type: "postback",
+                                          title: "Desactivar",
+                                          payload: "00006"
+                                      }]
+                                  }]
+                              }
+                          }
+                      }
+                  };
+                  callSendAPI(messageData);
+              } else {
+                  console.log("no es admin " + Admin.ID + " Rece" + recipientId + "");
                   var messageData = {
-                    recipient: {
-                        id: recipientId
-                    },
-                    message: {
-                        text: "No tiene el nivel de acceso adecuado, Contactece con el administrador",
-                        metadata: "DEVELOPER_DEFINED_METADATA"
-                    }
-                };
-                callSendAPI(messageData);
+                      recipient: {
+                          id: recipientId
+                      },
+                      message: {
+                          text: "No tiene el nivel de acceso adecuado, Contactece con el administrador",
+                          metadata: "DEVELOPER_DEFINED_METADATA"
+                      }
+                  };
+                  callSendAPI(messageData);
               }
           }
       }, function(error) {
           console.log("The read failed: " + error);
-      });   
+      });
   };
 
   var SendMessageCambios = function(recipientId) {
       var messageData = {
-                    recipient: {
-                        id: recipientId
-                    },
-                    message: {
-                        attachment: {
-                            type: "template",
-                            payload: {
-                                template_type: "generic",
-                                elements: [{
-                                    title: "Cambios",
-                                    item_url: "http://www.celucambio.com/",
-                                    subtitle: "Puedes ver nuestros telefonos disponibles para cambio en nuestro sitio web",
-                                    buttons: [{
-                                        type: "web_url",
-                                        url: "http://www.celucambio.com/cambiar",
-                                        title: "Ver Telefonos"
-                                    }]
-                                }]
-                            }
-                        }
-                    }
-                };
+          recipient: {
+              id: recipientId
+          },
+          message: {
+              attachment: {
+                  type: "template",
+                  payload: {
+                      template_type: "generic",
+                      elements: [{
+                          title: "Cambios",
+                          item_url: "http://www.celucambio.com/",
+                          subtitle: "Puedes ver nuestros telefonos disponibles para cambio en nuestro sitio web",
+                          buttons: [{
+                              type: "web_url",
+                              url: "http://www.celucambio.com/cambiar",
+                              title: "Ver Telefonos"
+                          }]
+                      }]
+                  }
+              }
+          }
+      };
+      callSendAPI(messageData);
+  };
+
+  var SendMessageUbicacion = function(recipientId) {
+      var messageData = {
+          recipient: {
+              id: senderID
+          },
+          message: {
+              attachment: {
+                  type: "template",
+                  payload: {
+                      template_type: "generic",
+                      elements: [{
+                          title: "CeluCambio",
+                          item_url: "http://www.celucambio.com/",
+                          subtitle: "Te enseñaremos la ruta usando Google Maps",
+                          buttons: [{
+                              type: "web_url",
+                              url: "https://www.google.es/maps/dir//Cra.+29c+%2375-22,+Bogot%C3%A1,+Colombia/@4.6694833,-74.0731626,17z/data=!4m16!1m7!3m6!1s0x8e3f9af92c5f4049:0x413e44830baaa9c!2sCra.+29c+%2375-22,+Bogot%C3%A1,+Colombia!3b1!8m2!3d4.6694833!4d-74.0709739!4m7!1m0!1m5!1m1!1s0x8e3f9af92c5f4049:0x413e44830baaa9c!2m2!1d-74.0709739!2d4.6694833",
+                              title: "Ver Mapa"
+                          }]
+                      }]
+                  }
+              }
+          }
+      };
       callSendAPI(messageData);
   };
 
@@ -300,6 +325,7 @@
 
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
   module.exports.SendMessageCambios = SendMessageCambios;
+  module.exports.SendMessageUbicacion = SendMessageUbicacion;
   module.exports.SendMessageInfoPerson = SendMessageInfoPerson;
   module.exports.SendMessageServices = SendMessageServices;
   module.exports.SendMessageInvoicePerson = SendMessageInvoicePerson;
