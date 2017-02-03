@@ -488,6 +488,32 @@ function receivedMessage(event) {
                                 }else if(data.indexOf("cambios")||data.indexOf("cambiar")){
                                     CeluCambio.SendMessageCambios(senderID);
                                 }
+                                else if(data.indexOf("ubicados")||data.indexOf("ubicacion")||data.indexOf("direccion")){
+                                    var messageData = {
+                                        recipient: {
+                                            id: senderID
+                                        },
+                                        message: {
+                                            attachment: {
+                                                type: "template",
+                                                payload: {
+                                                    template_type: "generic",
+                                                    elements: [{
+                                                        title: "CeluCambio",
+                                                        item_url: "http://www.celucambio.com/",
+                                                        subtitle: "Hola " + response.first_name + ", te enseñaremos la ruta usando Google Maps",
+                                                        buttons: [{
+                                                            type: "web_url",
+                                                            url: "https://www.google.es/maps/dir//Cra.+29c+%2375-22,+Bogot%C3%A1,+Colombia/@4.6694833,-74.0731626,17z/data=!4m16!1m7!3m6!1s0x8e3f9af92c5f4049:0x413e44830baaa9c!2sCra.+29c+%2375-22,+Bogot%C3%A1,+Colombia!3b1!8m2!3d4.6694833!4d-74.0709739!4m7!1m0!1m5!1m1!1s0x8e3f9af92c5f4049:0x413e44830baaa9c!2m2!1d-74.0709739!2d4.6694833",
+                                                            title: "Ver Mapa"
+                                                        }]
+                                                    }]
+                                                }
+                                            }
+                                        }
+                                    };
+                                    callSendAPI(messageData);
+                                }
                             }
                             else{
                                 ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
