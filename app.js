@@ -480,16 +480,16 @@ function receivedMessage(event) {
                                     data = data.replace(acentos.charAt(i), messageText.toLowerCase().charAt(i));
                                 }
                                 console.log(data);
-                                if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
+                                if(data.indexOf("hola")!=-1||data.indexOf("buenos dias")!=-1||data.indexOf("buenas noches")!=-1||data.indexOf("buenas tardes")!=-1){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                                         if (response) {
                                             console.log("aca");
                                             sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
                                         }
                                     });
-                                }else if(data.indexOf("cambios")||data.indexOf("cambiar")){
+                                }else if(data.indexOf("cambios")-1||data.indexOf("cambiar")-1){
                                     CeluCambio.SendMessageCambios(senderID);
-                                }else if(data.indexOf("ubicados")||data.indexOf("ubicacion")||data.indexOf("direccion")){
+                                }else if(data.indexOf("ubicados")-1||data.indexOf("ubicacion")-1||data.indexOf("direccion")-1){
                                     CeluCambio.SendMessageUbicacion(senderID);
                                 }
                             }
