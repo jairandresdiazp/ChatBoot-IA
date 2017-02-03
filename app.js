@@ -487,7 +487,7 @@ function receivedMessage(event) {
                                             sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
                                         }
                                     });
-                                }else if(data.indexOf("cambios")!=-1||data.indexOf("cambiar")!=-1){
+                                }else if(data.indexOf("cambios")!=-1||data.indexOf("cambio")!=-1||data.indexOf("cambiar")!=-1){
                                     CeluCambio.SendMessageCambios(senderID);
                                 }else if(data.indexOf("ubicados")!=-1||data.indexOf("ubicacion")!=-1||data.indexOf("direccion")!=-1){
                                     CeluCambio.SendMessageUbicacion(senderID);
