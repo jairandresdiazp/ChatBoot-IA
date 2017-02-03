@@ -487,8 +487,7 @@ function receivedMessage(event) {
                                     });
                                 }else if(data.indexOf("cambios")||data.indexOf("cambiar")){
                                     CeluCambio.SendMessageCambios(senderID);
-                                }
-                                else if(data.indexOf("ubicados")||data.indexOf("ubicacion")||data.indexOf("direccion")){
+                                }else if(data.indexOf("ubicados")||data.indexOf("ubicacion")||data.indexOf("direccion")){
                                     var messageData = {
                                         recipient: {
                                             id: senderID
