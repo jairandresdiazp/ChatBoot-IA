@@ -564,7 +564,7 @@ function receivedPostback(event) {
                 if(CaluCambioConfig){
                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                         if (response) {
-                            sendTextMessage(senderID, "Hola " + response.first_name + " cuentanos en que te podemos ayudar, en CeluCambio  tenemos un telefono pata ti");
+                            sendTextMessage(senderID, "Hola " + response.first_name + " por medio de nuestra plataforma prodras tener ese nuevo telefono que tanto quieres haciendo un cambio con nostros");
                         }
                     });
                 }
