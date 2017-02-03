@@ -479,6 +479,7 @@ function receivedMessage(event) {
                                 for (var i=0; i<acentos.length; i++) {
                                     data = data.replace(acentos.charAt(i), messageText.toLowerCase().charAt(i));
                                 }
+                                console.log(data);
                                 if(data.indexOf("hola")||data.indexOf("buenos dias")||data.indexOf("buenas noches")||data.indexOf("buenas tardes")){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                                         if (response) {
