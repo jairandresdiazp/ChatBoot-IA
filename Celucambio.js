@@ -179,7 +179,7 @@ var SendMessagePromocion = function(recipientId) {
                       elements: [{
                           title: "Cambios",
                           item_url: "http://www.celucambio.com/",
-                          subtitle: "Para demostrarte que pudes cambiar sin invertir mucho, tenemos estas promociones para ti",
+                          subtitle: "Para demostrarte que pudes cambiar sin invertir mucho, tenemos estas promociones",
                           buttons: [{
                               type: "web_url",
                               url: "http://www.celucambio.com/store/24-ofertas",
