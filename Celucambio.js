@@ -142,7 +142,7 @@
   var SendMessageUbicacion = function(recipientId) {
       var messageData = {
           recipient: {
-              id: senderID
+              id: recipientId
           },
           message: {
               attachment: {
