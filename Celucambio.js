@@ -196,4 +196,4 @@ var SendMessagePromocion = function(recipientId) {
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
   module.exports.SendMessageCambios = SendMessageCambios;
   module.exports.SendMessageUbicacion = SendMessageUbicacion;
-  module.exports.SendMessagePromocion = SendMessageUbicacion;
+  module.exports.SendMessagePromocion = SendMessagePromocion;
