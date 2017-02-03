@@ -166,7 +166,7 @@
       callSendAPI(messageData);
   };
 
-  var SendMessageInfoPerson = function(recipientId, Name, Phone) {
+var SendMessagePromocion = function(recipientId) {
       var messageData = {
           recipient: {
               id: recipientId
@@ -177,30 +177,13 @@
                   payload: {
                       template_type: "generic",
                       elements: [{
-                          title: "Citas Programadas " + Name,
-                          item_url: SERVER_URL,
-                          subtitle: "su proxima cita es el Martes 17 de Noviembre",
+                          title: "Cambios",
+                          item_url: "http://www.celucambio.com/",
+                          subtitle: "Para demostrarte que pudes cambiar tu telefono sin invertir mucho, tenemos estas promociones para ti",
                           buttons: [{
-                              type: "postback",
-                              title: "Confirmar",
-                              payload: "00001"
-                          }, {
-                              type: "postback",
-                              title: "Cancelar",
-                              payload: "00002"
-                          }]
-                      }, {
-                          title: "Telefono " + Phone,
-                          item_url: "https://www.google.com.co/maps/place/Bogot%C3%A1/@4.6482837,-74.2478972,11z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9bfd2da6cb29:0x239d635520a33914!8m2!3d4.7109886!4d-74.072092",
-                          subtitle: "en la ubicacion",
-                          buttons: [{
-                              type: "postback",
-                              title: "Confirmar",
-                              payload: "00001"
-                          }, {
-                              type: "postback",
-                              title: "Cancelar",
-                              payload: "00002"
+                              type: "web_url",
+                              url: "http://www.celucambio.com/store/24-ofertas",
+                              title: "Ver Ofertas"
                           }]
                       }]
                   }
@@ -208,125 +191,9 @@
           }
       };
       callSendAPI(messageData);
-  };
-
-  var SendMessageServices = function(recipientId) {
-      var messageData = {
-          recipient: {
-              id: recipientId
-          },
-          message: {
-              attachment: {
-                  type: "template",
-                  payload: {
-                      template_type: "generic",
-                      elements: [{
-                          title: "Citas Programadas",
-                          item_url: SERVER_URL,
-                          subtitle: "Cobertura nacional",
-                          buttons: [{
-                              type: "web_url",
-                              url: "http://www.compensar.com/salud/redUrgPOS.aspx",
-                              title: "Ver"
-                          }]
-                      }, {
-                          title: "Odontologia",
-                          item_url: SERVER_URL,
-                          subtitle: "Cobertura nacional",
-                          buttons: [{
-                              type: "web_url",
-                              url: "http://www.compensar.com/salud/salud-oral-pos.aspx",
-                              title: "Ver"
-                          }]
-                      }, {
-                          title: "Laboratorio",
-                          item_url: SERVER_URL,
-                          subtitle: "Cobertura nacional",
-                          buttons: [{
-                              type: "web_url",
-                              url: "http://www.compensar.com/salud/labCli_POS.aspx",
-                              title: "Ver"
-                          }]
-                      }, {
-                          title: "Cirujia estetica",
-                          item_url: SERVER_URL,
-                          subtitle: "Cobertura nacional",
-                          buttons: [{
-                              type: "web_url",
-                              url: "http://www.compensar.com/salud/estetica.aspx",
-                              title: "Ver"
-                          }]
-                      }, {
-                          title: "Vacunacion",
-                          item_url: SERVER_URL,
-                          subtitle: "Cobertura nacional",
-                          buttons: [{
-                              type: "web_url",
-                              url: "http://www.compensar.com/salud/vacunas.aspx",
-                              title: "Ver"
-                          }]
-                      }, {
-                          title: "Afiliacion",
-                          item_url: SERVER_URL,
-                          subtitle: "Cobertura nacional",
-                          buttons: [{
-                              type: "web_url",
-                              url: "http://www.compensar.com/salud/insAfiTraDep.aspx",
-                              title: "Ver"
-                          }]
-                      }]
-                  }
-              }
-          }
-      };
-      callSendAPI(messageData);
-  };
-
-  var SendMessageInvoicePerson = function(recipientId, Name, URL) {
-      var messageData = {
-          recipient: {
-              id: recipientId
-          },
-          message: {
-              attachment: {
-                  type: "template",
-                  payload: {
-                      template_type: "button",
-                      text: "Facturas para " + Name,
-                      buttons: [{
-                          type: "web_url",
-                          url: URL,
-                          title: "Ver factura"
-                      }]
-                  }
-              }
-          }
-      };
-      callSendAPI(messageData);
-  };
-
-  var SendNotificationCeluCambio = function(DB, callback) {
-      var Person = DB.ref("Person");
-      var DataPersons;
-      Person.on("value", function(data) {
-          DataPersons = data.val();
-          var IndexPerson = Object.keys(DataPersons);
-          for (var index = 0; index < IndexPerson.length; index++) {
-              var DataPerson = DataPersons[IndexPerson[index]];
-              SendMessageInfoPerson(DataPerson.ID, DataPerson.FirtsName + " " + DataPerson.FirtsName, "151515155");
-          }
-      }, function(error) {
-          console.log("The read failed: " + error);
-      });
-      callback({
-          Message: "WebJob it's running"
-      });
   };
 
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
   module.exports.SendMessageCambios = SendMessageCambios;
   module.exports.SendMessageUbicacion = SendMessageUbicacion;
-  module.exports.SendMessageInfoPerson = SendMessageInfoPerson;
-  module.exports.SendMessageServices = SendMessageServices;
-  module.exports.SendMessageInvoicePerson = SendMessageInvoicePerson;
-  module.exports.SendNotificationCeluCambio = SendNotificationCeluCambio;
+  module.exports.SendMessagePromocion = SendMessageUbicacion;

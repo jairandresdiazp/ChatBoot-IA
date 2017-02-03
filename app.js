@@ -491,6 +491,8 @@ function receivedMessage(event) {
                                     CeluCambio.SendMessageCambios(senderID);
                                 }else if(data.indexOf("ubicados")!=-1||data.indexOf("ubicacion")!=-1||data.indexOf("direccion")!=-1){
                                     CeluCambio.SendMessageUbicacion(senderID);
+                                }else if(data.indexOf("ofertas")!=-1||data.indexOf("oferta")!=-1||data.indexOf("promocion")!=-1||data.indexOf("promociones")!=-1){
+                                    CeluCambio.SendMessagePromocion(senderID);
                                 }
                             }
                             else{
