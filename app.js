@@ -496,7 +496,7 @@ function receivedMessage(event) {
                                     CeluCambio.SendMessagePromocion(senderID);
                                 }else if(data.indexOf("legal")!=-1||data.indexOf("daño")!=-1||data.indexOf("daños")!=-1||data.indexOf("reparar")!=-1||data.indexOf("reparaciones")!=-1||data.indexOf("areglo")!=-1||data.indexOf("arreglos")!=-1){
                                     CeluCambio.SendMessageLegal(senderID);
-                                }else if(data.indexOf("buscar")!=-1){
+                                }else if(data.indexOf("buscar")!=-1||data.indexOf("busco")!=-1){
                                     var separador = " ";
                                     var identificador = messageText.split(separador)[0].trim();
                                     var parameters = "";
