@@ -206,7 +206,7 @@ var SendMessageLegal = function(recipientId) {
                       elements: [{
                           title: "CeluCambio",
                           item_url: "http://www.celucambio.com/",
-                          subtitle: "Todo esta en regla de acuerdo con las leyes vigentes en nuestro pais, conoce mas en nuestra pagina de prevuntas frecuentes",
+                          subtitle: "Todo esta en regla de acuerdo con las leyes vigentes en nuestro pais, conoce mas en nuestra pagina de preguntas frecuentes",
                           buttons: [{
                               type: "web_url",
                               url: "http://www.celucambio.com/preguntas-frecuentes",
