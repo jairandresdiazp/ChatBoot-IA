@@ -1,4 +1,5 @@
 node_modules/
+App_Data/
 .sass-cache/
 .vscode/
 *.ini

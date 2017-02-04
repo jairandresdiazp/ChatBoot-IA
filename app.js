@@ -506,6 +506,8 @@ function receivedMessage(event) {
                                         }
                                     } catch (err) {}
                                     CeluCambio.SendMessageBuscar(senderID,parameters); 
+                                }else if(data.indexOf("gracias")!=-1){
+                                    sendTextMessage(senderID, "Gracias a ti " + response.first_name + ", es un gusto poder ayudarte");
                                 }
                             }
                             else{
