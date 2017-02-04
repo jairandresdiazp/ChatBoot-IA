@@ -220,8 +220,36 @@ var SendMessageLegal = function(recipientId) {
       callSendAPI(messageData);
   };
 
+  var SendMessageBuscar = function(recipientId,parameters) {
+      var messageData = {
+          recipient: {
+              id: recipientId
+          },
+          message: {
+              attachment: {
+                  type: "template",
+                  payload: {
+                      template_type: "generic",
+                      elements: [{
+                          title: "CeluCambio",
+                          item_url: "http://www.celucambio.com/",
+                          subtitle: "Estos son los telefonos "+parameters+" que tenemos disponibles",
+                          buttons: [{
+                              type: "web_url",
+                              url: "http://www.celucambio.com/store/module/spsearchpro/catesearch?fc=module&module=spsearchpro&controller=catesearch&orderby=name&orderway=ASC&cat_id=2%2C3%2C24%2C4%2C8%2C12%2C13%2C14%2C15%2C16%2C22%2C23%2C26%2C28%2C29%2C27&search_query="+parameters+"&spr_submit_search=Search&n=20",
+                              title: "Lo quiero"
+                          }]
+                      }]
+                  }
+              }
+          }
+      };
+      callSendAPI(messageData);
+  };
+
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
   module.exports.SendMessageCambios = SendMessageCambios;
   module.exports.SendMessageUbicacion = SendMessageUbicacion;
   module.exports.SendMessagePromocion = SendMessagePromocion;
   module.exports.SendMessageLegal = SendMessageLegal;
+  module.exports.SendMessageBuscar = SendMessageBuscar;

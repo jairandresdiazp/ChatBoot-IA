@@ -494,9 +494,18 @@ function receivedMessage(event) {
                                     CeluCambio.SendMessageUbicacion(senderID);
                                 }else if(data.indexOf("ofertas")!=-1||data.indexOf("oferta")!=-1||data.indexOf("promocion")!=-1||data.indexOf("promociones")!=-1){
                                     CeluCambio.SendMessagePromocion(senderID);
-                                }
-                                else if(data.indexOf("legal")!=-1||data.indexOf("daño")!=-1||data.indexOf("daños")!=-1||data.indexOf("reparar")!=-1||data.indexOf("reparaciones")!=-1||data.indexOf("areglo")!=-1||data.indexOf("arreglos")!=-1){
+                                }else if(data.indexOf("legal")!=-1||data.indexOf("daño")!=-1||data.indexOf("daños")!=-1||data.indexOf("reparar")!=-1||data.indexOf("reparaciones")!=-1||data.indexOf("areglo")!=-1||data.indexOf("arreglos")!=-1){
                                     CeluCambio.SendMessageLegal(senderID);
+                                }else if(data.indexOf("buscar")!=-1){
+                                    var separador = " ";
+                                    var identificador = messageText.split(separador)[0].trim();
+                                    var parameters = "";
+                                    try {
+                                        for (var index = 1; index < messageText.split(separador).length; index++) {
+                                            parameters = parameters + messageText.split(separador)[index].trim();
+                                        }
+                                    } catch (err) {}
+                                    CeluCambio.SendMessageBuscar(senderID,parameters); 
                                 }
                             }
                             else{
