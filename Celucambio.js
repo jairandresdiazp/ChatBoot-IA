@@ -204,7 +204,7 @@ var SendMessageLegal = function(recipientId) {
                   payload: {
                       template_type: "generic",
                       elements: [{
-                          title: "Cambios",
+                          title: "CeluCambio",
                           item_url: "http://www.celucambio.com/",
                           subtitle: "Todo esta en regla de acuerdo con las leyes vigentes en nuestro pais, conoce mas en nuestra pagina de prevuntas frecuentes",
                           buttons: [{
