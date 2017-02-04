@@ -474,12 +474,13 @@ function receivedMessage(event) {
                         ChatCeluCambio.once("value", function(res) {
                             var CaluCambioConfig = res.child("Active").val();
                             if(CaluCambioConfig){
-                                var acentos = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç";
+                                var acentos = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÇç";
+                                var original = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuucc";
                                 var data= messageText.toLowerCase();
                                 for (var i=0; i<acentos.length; i++) {
-                                    data = data.replace(acentos.charAt(i), messageText.toLowerCase().charAt(i));
+                                    data = data.replace(acentos.charAt(i), original.charAt(i));
                                 }
-                                console.log(data);
+                                data= data.toLowerCase();
                                 if(data.indexOf("hola")!=-1||data.indexOf("buenos dias")!=-1||data.indexOf("buenas noches")!=-1||data.indexOf("buenas tardes")!=-1){
                                     ChatBoot.GetInfoPersonFacebook(senderID, function(response) {
                                         if (response) {
@@ -493,6 +494,9 @@ function receivedMessage(event) {
                                     CeluCambio.SendMessageUbicacion(senderID);
                                 }else if(data.indexOf("ofertas")!=-1||data.indexOf("oferta")!=-1||data.indexOf("promocion")!=-1||data.indexOf("promociones")!=-1){
                                     CeluCambio.SendMessagePromocion(senderID);
+                                }
+                                else if(data.indexOf("legal")!=-1||data.indexOf("daño")!=-1||data.indexOf("daños")!=-1||data.indexOf("reparar")!=-1||data.indexOf("reparaciones")!=-1||data.indexOf("areglo")!=-1||data.indexOf("arreglos")!=-1){
+                                    CeluCambio.SendMessageLegal(senderID);
                                 }
                             }
                             else{

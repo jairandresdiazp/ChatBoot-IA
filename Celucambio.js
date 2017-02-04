@@ -193,7 +193,35 @@ var SendMessagePromocion = function(recipientId) {
       callSendAPI(messageData);
   };
 
+var SendMessageLegal = function(recipientId) {
+      var messageData = {
+          recipient: {
+              id: recipientId
+          },
+          message: {
+              attachment: {
+                  type: "template",
+                  payload: {
+                      template_type: "generic",
+                      elements: [{
+                          title: "Cambios",
+                          item_url: "http://www.celucambio.com/",
+                          subtitle: "Para demostrarte que todo esta en regla de acuerdo con las leyes vigentes en nuestro pais, conoce mas en nuestra pagina de prevuntas frecuentes",
+                          buttons: [{
+                              type: "web_url",
+                              url: "http://www.celucambio.com/preguntas-frecuentes",
+                              title: "Saber mas"
+                          }]
+                      }]
+                  }
+              }
+          }
+      };
+      callSendAPI(messageData);
+  };
+
   module.exports.ActivarChatCeluCambio = ActivarChatCeluCambio;
   module.exports.SendMessageCambios = SendMessageCambios;
   module.exports.SendMessageUbicacion = SendMessageUbicacion;
   module.exports.SendMessagePromocion = SendMessagePromocion;
+  module.exports.SendMessageLegal = SendMessageLegal;
